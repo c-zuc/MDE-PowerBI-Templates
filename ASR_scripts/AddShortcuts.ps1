@@ -526,6 +526,9 @@ Function LookupHKLMAppsFixLnks($programslist)
                 if ($apppath.EndsWith("\") -eq $false){
                     $apppath = $apppath + "\"
                 }
+		if ($apppath.Contains(";") -eq $true){
+                    $apppath = $apppath.Split(";")[0]
+                }
                 $target = $apppath + $_.Value
             }
             else
